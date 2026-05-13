@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(lake --version)",
+      "Bash(lean --version)",
+      "Bash(grep)",
+      "Bash(ls)"
+    ],
+    "defaultMode": "bypassPermissions"
+  }
+}

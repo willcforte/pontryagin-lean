@@ -1,0 +1,586 @@
+
+44 A. D. Lewis
+Leb(μ,x0,t0,t) with τj < t, j ∈ {1,...,k}, then the fixed interval multi-needle variation
+vΘ(t) ∈Rn exists and is given by
+vΘ(t) = Φ(μ,x0,t0,τ1,t) ·vθ1 + ···+ Φ(μ,x0,t0,τk,t) ·vθk.
+Proof: Just as in the proof of Proposition 4.9 we have
+ξ(μΘ(s,·),x0,t0,τ1) = ξ(μ,x0,t0,τ1) + svθ1 + o(s).
+Since the control μΘ(s,·) on [τ2 −sl2,τ2] is just μ, it follows from Proposition 4.3 that
+ξ(μΘ(s,·),x0,t0,τ2 −sl2) = ξ(μ,x0,t0,τ2 −sl2) + sΦ(μ,x0,t0,τ1,τ2 −sl2) ·vθ1 + o(s).
+Now one can perform a computation, just like that in the proof of Proposition 4.9, to show
+that
+ξ(μΘ(s,·),x0,t0,τ2) = ξ(μΘ(s,·),x0,t0,τ2 −sl2) + sl2f(ξ(μΘ(s,·),x0,t0,τ2 −sl2),ω2) + o(s).
+Again following the computations in the proof of Proposition 4.9, and using the fact that
+τ2 is a Lebesgue point, we have
+ξ(μ,x0,t0,τ2 −sl2) = ξ(μ,x0,t0,τ2) −sl2f(ξ(μ,x0,τ2),μ(τ2)) + o(s).
+Putting all of this together gives
+ξ(μΘ(s,·),x0,t0,τ2) = ξ(μ,x0,t0,τ2) + sΦ(μ,x0,t0,τ1,τ2 −sl2) ·vθ1 + svθ2 + o(s).
+Carrying on in this way (i.e., using induction) we arrive at
+ξ(μΘ(s,·),x0,t0,t) = ξ(μ,x0,t0,t) + sΦ(μ,x0,t0,τ1,t) ·vθ1 + ...
++ sΦ(μ,x0,t0,τk,t) ·vθk + o(s). (4.2)
+Differentiation with respect to s at s = 0 gives the result. 
+One can see in the proof why it is that we require the times for a fixed interval multi-
+needle variation to be distinct. It is possible to consider different needle variations based
+at the same time, but one has to be more careful in computing the form of the variation.
+However, it is not necessary here to use this degree of generality.
+One of the important observations one can make about a fixed interval multi-needle
+variation involves convex combinations. In order to express this, the following notation
+is helpful. If Θ = {θ1,...,θk} is fixed interval multi-needle variation data and if λ =
+{λ1,...,λk} ⊂ R≥0 then we denote λΘ = {λ1θ1,...,λkθk}, where we use the notation
+introduced following Corollary 4.10.
+4.13 Corollary: (Coned convex combinations of fixed interval multi-needle variations) Let
+Σ = (X,f,U) be a control system, let t0,t1 ∈ R satisfy t0 < t1, let x0 ∈ X, and let
+μ ∈ U(x0,t0,[t0,t1]). If Θ = {θ1,...,θk} is a fixed interval multi-needle variation such
+that τ1,...,τk ∈Leb(μ,x0,t0,t) with t > τj, j ∈{1,...,k}, and if λ = {λ1,...,λk}⊂R≥0
+then
+vλΘ(t) = λ1Φ(μ,x0,t0,τ1,t) ·vθ1 + ···+ λkΦ(μ,x0,t0,τk,t) ·vθk.
+The Maximum Principle in control and in optimal control 45
+Moreover, if k∑
+j=1
+λj = 1,
+then the limit d
+ds
+∣∣s=0ξ(μλΘ(s,·),x0,t0,t) exists uniformly in λ.
+Proof: The first assertion follows immediately from the fact that vλjθj = λjvθj for j ∈
+{1,...,k}. The final assertion concerning uniform convergence with respect to λ follows
+from a compactness argument that we leave to the reader. 
+4.14 Remark: (Why needle variations?) Having now discussed a little bit about needle
+variations, we should really ask ourselves why these are useful to look at. Variations in
+general provide us with a way to look at trajectories “nearby” a given trajectory. Needle
+variations do this in a very specific way. What a needle variation does is isolate the effects
+of changing the control from its nominal value to a different value around a single instant.
+The notion of a multi-needle variation encodes the effects of doing this at various different
+times. Thus the way to think of the set of multi-needle variations is this: It represents the
+effects at a given time t of instantaneously altering the value of the control around almost
+all times (specifically at Lebesgue points) preceding t. •
+4.4. Free interval variations
+Fixed interval multi-needle variations are defined relative to a control which specifies
+the time interval for the control variation. Now we allow the length of the time interval to
+vary. We jump straight to multi-needle variations.
+4.15 Definition: (Free interval multi-needle variation) Let Σ = (X,f,U) be a control system,
+let t0,t1 ∈R satisfy t0 < t1, let x0 ∈X, and let μ ∈U(x0,t0,[t0,t1]).
+(i) Free interval multi-needle variation data is a pair (Θ,Ψ) where Θ = {θ1,...,θk}
+is fixed interval multi-needle variation data and where Ψ = (τ,δτ) ∈[t0,t1]×R satisfies
+τ > τj, j ∈{1,...,k}.
+(ii) The control variation of μ associated to free interval multi-needle variation data
+(Θ,Ψ) is the map (s,t) 7→μ(Θ,Ψ)(s,t) defined by
+μ(Θ,Ψ)(s,t) =
+
+
+μΘ(t), t ∈[t0,τ],
+μ(τ), t ∈(τ,τ + sδτ],
+μΘ(t −sδτ), t ∈(τ + sδτ,t1 + sδτ]
+when δτ ≥0 and by
+μ(Θ,Ψ)(s,t) =
+{μΘ(t), [t0,τ + sδτ],
+μΘ(t −sδτ), t ∈(τ + sδτ,t1 + sδτ]
+when δτ < 0. (Note that the domain of μ(Θ,Ψ)(s,·) depends on s.)
+46 A. D. Lewis
+(iii) The free interval multi-needle variation associated with the control μ, the tra-
+jectory ξ(μ,x0,t0,·), the time t > τ, and the free interval multi-needle variation data
+(Θ,Ψ) is the element v(Θ,Ψ) ∈Rn defined by
+v(Θ,Ψ)(t) = d
+ds
+∣∣∣s=0ξ(μ(Θ,Ψ)(s,·),x0,t0,t),
+when the limit exists. •
+In Figure 4.4 we show a free interval multi-needle variation for δτ > 0. When δτ < 0t
+μ(Θ,Φ)(s,t)
+ω1
+τ1 −sl1 τ1
+ω2
+τ2 −sl2 τ2 ττ+sδτ
+Figure 4.4. A free interval multi-needle variation for δτ > 0
+then the right endpoint of the interval simply gets shifted to the left, “deleting” that part
+of the control defined on [τ + sδτ,τ].
+Let us do as we did for fixed interval multi-needle variations and show that free interval
+multi-needle variations exist with suitable assumptions on the data.
+4.16 Proposition: (Existence of free interval multi-needle variations) Let Σ = (X,f,U) be
+a control system, let t0,t1 ∈R satisfy t0 < t1, let x0 ∈X, and let μ ∈U(x0,t0,[t0,t1]). If
+(Θ,Ψ) is free interval multi-needle variation data with Θ = {θ1,...,θk} and Ψ = (τ,δτ)
+such that τ1,...,τk,τ ∈ Leb(μ,x0,t0,t), then the free interval multi-needle variation
+v(Θ,Ψ) ∈Rn exists at t > τ and is given by
+v(Θ,Ψ)(t) = Φ(μ,x0,t0,τ1,t) ·vθ1 + ···+ Φ(μ,x0,t0,τk,t) ·vθk
++ δτΦ(μ,x0,t0,τ,t) ·f(ξ(μ,x0,t0,τ),μ(τ)).
+Proof: Since τ is a Lebesgue point for t 7→f(ξ(μ,x0,t0,t),μ(t)) it is also a Lebesgue point
+for t 7→ f(ξ(μ(Θ,Ψ)(s,·),x0,t0,t),μ(Θ,Ψ)(t)). Therefore, emulating the arguments made in
+the proof of Proposition 4.9, we obtain
+ξ(μ(Θ,Ψ)(s,·),x0,t0,τ + sδτ) = ξ(μ(Θ,Ψ)(s,·),x0,t0,τ)
++ sδτf(ξ(μ(Θ,Ψ)(s,·),x0,t0,τ),μ(Θ,Ψ)(s,τ)) + o(s).
+The Maximum Principle in control and in optimal control 47
+We also have, in similar fashion,
+ξ(μ,x0,t0,τ + sδτ) = ξ(μ,x0,t0,τ) + sδτf(ξ(μ,x0,t0,τ),μ(τ)) + o(s).
+Now, by continuous dependence of solutions on initial conditions, for s sufficiently small
+there exists gs : [t0,t1] →Rn such that lims→0 gs(t) = 0 uniformly in t and such that
+f(ξ(μ(Θ,Ψ)(s,·),x0,t0,t),μ(Θ,Ψ)(s,t)) = f(ξ(μ,x0,t0,t),μ(t)) + gs(t), t ∈[t0,t1].
+Therefore,
+∫ τ+sδτ
+τ
+f(ξ(μ(Θ,Ψ)(s,·),x0,t0,t),μ(Θ,Ψ)(s,t)) dt =
+∫ τ+sδτ
+τ
+f(ξ(μ,x0,t0,t),μ(t)) dt + o(s)
+= sδτf(ξ(μ,x0,t0,τ),μ(τ)) + o(s).
+Using the integral form of the differential equation then gives
+ξ(μ(Θ,Ψ)(s,·),x0,t0,τ + sδτ) = ξ(μ(Θ,Ψ)(s,·),x0,t0,τ) + sδτf(ξ(μ,x0,t0,τ),μ(τ)) + o(s).
+From the proof of Proposition 4.12, particularly (4.2), we now have
+ξ(μ(Θ,Ψ)(s,·),x0,t0,τ + sδτ) = sδτf(ξ(μ,x0,t0,τ),μ(τ)) + ξ(μ,x0,t0,τ)
++ sΦ(μ,x0,t0,τ1,τ) ·vθ1 + ···+ sΦ(μ,x0,t0,τk,τ) ·vθk + o(s).
+This then gives
+ξ(μ(Θ,Ψ)(s,·),x0,t0,t + sδτ) = sδτΦ(μ,x0,t0,τ,t) ·f(ξ(μ,x0,t0,τ),μ(τ)) + ξ(μ,x0,t0,t)
++ sΦ(μ,x0,t0,τ1,t) ·vθ1 + ···+ sΦ(μ,x0,t0,τk,t) ·vθk + o(s).
+Differentiation with respect to s at s = 0 now gives the result. 
+As with fixed interval multi-needle variations, free interval multi-needle variations are
+closed under coned convex combinations. To generate the notation to succinctly express
+this, let (Θ,Ψ) be free interval multi-needle variation data with Θ = {θ1,...,θk} and
+Ψ = (τ,δτ) and let λ = {λ0,λ1,...,λk}⊂R≥0. We then take λ(Θ,Ψ) to be the free interval
+multi-needle variation data ({λ1θ1,...,λkθk},(τ,λ0δτ)). We then have the following result.
+4.17 Corollary: (Coned convex combinations of free interval multi-needle variations) Let
+Σ = (X,f,U) be a control system, let t0,t1 ∈ R satisfy t0 < t1, let x0 ∈ X, and let μ ∈
+U(x0,t0,[t0,t1]). If (Θ,Ψ) is free interval multi-needle variation data with Θ = {θ1,...,θk}
+and Ψ = (τ,δτ) such that τ1,...,τk,τ ∈ Leb(μ,x0,t0,t), and if λ = {λ0,λ1,...,λk} ⊂
+R≥0, then
+vλ(Θ,Ψ)(t) = λ1Φ(μ,x0,t0,τ1,t) ·vθ1 + ···+ λkΦ(μ,x0,t0,τk,t) ·vθ1
++ λ0δτΦ(μ,x0,t0,τ,t) ·f(ξ(μ,x0,t0,τ),μ(τ)).
+Proof: This exactly follows as does the proof of Corollary 4.13. 
+48 A. D. Lewis
+Exercises
+E4.1 Let Σ = (X,f,U) be a control system, let t0,t1 ∈ R satisfy t0 < t1, let x0 ∈ X, and
+let μ ∈U(x0,t0,[t0,t1]). For τ0,τ1,τ2 ∈[t0,t1] show that
+1. Φ(μ,x0,t0,τ1,τ1) = In,
+2. Φ(μ,x0,t0,τ1,τ2) = Φ(μ,x0,t0,τ2,τ1)−1, and
+3. Φ(μ,x0,t0,τ1,τ2) ◦Φ(μ,x0,t0,τ0,τ1) = Φ(μ,x0,t0,τ0,τ2).
+E4.2 Let X = R2, let m = 2, let
+U = {(−1,0),(0,−1),(0,0),(1,0),(0,1)},
+and define
+f((x1,x2),(u1,u2)) = (u1,u2).
+Define u(t) = (0,0) for t ∈[t0,t1]. Show that the set of fixed interval needle variations
+at any point t ∈[t0,t1] is not convex.
+Chapter 5
+The reachable set and
+approximation of its boundary by
+cones
+In this chapter we carry out one of the important steps in understanding the Maximum
+Principle: the elucidation of the relationship between convex cones of multi-needle variations
+with the boundary of the reachable set. The development here is a little intricate and so
+will take some time to absorb on a first encounter.
+The reader should be warned that the material in this chapter is best understood while
+forgetting about the fact that we are interested in optimal control. Only in Chapter 6 will
+we bring the optimal control problem back into the picture. Thus this chapter is dealing
+with the “in control” rather than the “in optimal control” aspect of the title for these notes.
+5.1. Definitions
+In this section we define precisely the various notions of reachable set that we shall use.
+5.1 Definition: (Reachable set) Let Σ = (X,f,U) be a control system, let x0 ∈ X, and let
+t0,t1 ∈R satisfy t0 < t1.
+(i) The reachable set from x0 at t0 in time t1 −t0 is
+R(x0,t0,t1) = {ξ(μ,x0,t0,t1) | μ ∈U(x0,t0,[t0,t1])}.
+(ii) The reachable set from x0 at t0 is
+R(x0,t0) = ∪t1∈[t0,∞)R(x0,t0,t1). •
+Note that since f is time-independent,
+R(x0,t0,t1) = R(x0,0,t1 −t0)
+(with similar statements holding for all other variants of the reachable set). However, it
+will be necessary to sometimes consider trajectories naturally defined as starting at nonzero
+times, so we allow arbitrary initial times in our definition.
+49
+50 A. D. Lewis
+As we shall see, the Maximum Principle has a lot to do with the reachable set. Before we
+get to this, we need to define the various flavours of cones that we shall use to approximate
+the reachable set at its boundary.
+5.2. The fixed interval tangent cone
+We saw in Corollary 4.10 that the fixed interval needle variations at a Lebesgue point
+for t 7→f(ξ(μ,x0,t0,t),μ(t)) form a cone. We wish to consider unions of needle variations
+over all Lebesgue points, so let us establish some notation for this.
+5.2 Definition: (Fixed interval tangent cone) Let Σ = (X,f,U) be a control system, let
+x0 ∈X, let t0,t1 ∈R satisfy t0 < t1, and let μ ∈U(x0,t0,[t0,t1]). For t ∈[t0,t1] we denote
+by K(μ,x0,t0,t) the closure of the coned convex hull of the set
+⋃{Φ(μ,x0,t0,τ,t) ·v | τ ∈Leb(μ,x0,t0,t), v is a fixed interval needle variation at τ}.
+We call K(μ,x0,t0,t) the fixed interval tangent cone at t. •
+The idea of the fixed interval tangent cone is that it should be a set of “directions” from
+which trajectories of the system emanate. This will be made precise in Lemma 5.10 below.
+In proving that lemma a key rˆole will be played by the following notion.
+5.3 Definition: (Fixed interval tangent simplex cone) Let Σ = (X,f,U) be a control system,
+let x0 ∈X, let t0,t1 ∈R satisfy t0 < t1, and let μ ∈U(x0,t0,[t0,t1]).
+(i) Fixed interval tangent r-simplex cone data is a collection {Θ1,...,Θr} of fixed
+interval multi-needle variation data such that:
+(a) Θa = {θa1,...,θaka} (so defining the notation for the fixed interval needle vari-
+ation data θaj, j ∈{1,...,ka}, a ∈{1,...,r});
+(b) θaj = (τaj,laj,ωaj), j ∈ {1,...,ka}, a ∈ {1,...,r} (so defining the notation
+(τaj,laj,ωaj), j ∈{1,...,ka}, a ∈{1,...,r});
+(c) the times τaj, j ∈ {1,...,ka}, a ∈ {1,...,r}, are distinct and all in
+Leb(μ,x0,t0,t1);
+(d) if vΘa(t), a ∈{1,...,r}, are the fixed interval multi-needle variations associated
+to Θa, a ∈ {1,...,r}, at time t > τaj, j ∈ {1,...,ka}, a ∈ {1,...,r}, then the
+coned convex hull of {vΘ1 ,...,vΘr} is an r-simplex cone.
+(ii) The r-simplex cone defined by fixed interval tangent r-simplex cone data {Θ1,...,Θr}
+is a fixed interval tangent r-simplex cone at time t. •
+The usefulness of fixed interval tangent simplex cones comes from the following simple
+result.
+5.4 Lemma: (Property of fixed interval tangent simplex cones) Let Σ = (X,f,U) be a control
+system, let x0 ∈ X, let t0,t1 ∈ R satisfy t0 < t1, and let μ ∈ U(x0,t0,[t0,t1]). Let Θ =
+{Θ1,...,Θr} be a fixed interval tangent r-simplex cone data, let λ = {λ1,...,λr} ⊂ R≥0,
+and let t > τaj, j ∈{1,...,ka}, a ∈{1,...,r}. Denote by vΘa(t), a ∈{1,...,r}, the fixed
+interval multi-needle variations at time t.
+The Maximum Principle in control and in optimal control 51
+Then, for s0 ∈ R>0 sufficiently small and for each s ∈ [0,s0], there exists a control
+μλ,Θ(s,·) ∈U(x0,t0,[t0,t1]) such that
+d
+ds
+∣∣∣s=0ξ(μλ,Θ(s,·),x0,t0,t) = λ1vΘ1 (t) + ···+ λrvΘr(t).
+Proof: This follows from Corollary 4.13 since {θa,j | j ∈ {1,...,ka}, a ∈ {1,...,r}} is a
+fixed interval multi-needle variation, this itself being a consequence of the distinctness of
+the times τaj, j ∈{1,...,ka}, a ∈{1,...,r}. 
+The point is that all directions in K(μ,x0,t0,t) that are contained in fixed interval tan-
+gent simplex cones are generated by a fixed interval multi-needle variation. The nonobvious
+thing is that all interior points in K(μ,x0,t0,t) have this property. The following result
+records this, along with another useful characterisation of the fixed interval tangent cone.
+5.5 Lemma: (Characterisations of fixed interval tangent cone) Let Σ = (X,f,U) be a control
+system, let x0 ∈X, let t0,t1 ∈R satisfy t0 < t1, and let μ ∈U(x0,t0,[t0,t1]). For a subset
+C ⊂Rn and for t ∈[t0,t1] the following statements are equivalent:
+(i) C = K(μ,x0,t0,t);
+(ii) C is the closure of the union of the set of fixed interval tangent r-simplex cones at
+time t where r = dim(K(μ,x0,t0,t));
+(iii) C = cl(⋃{Φ(μ,x0,t0,τ,t) ·K(μ,x0,t0,τ) | τ ∈Leb(μ,x0,t0,t)}).
+Proof: (ii)⊂(i) Note that any fixed interval tangent simplex cone at time t is, by definition,
+contained in K(μ,x0,t0,t). Thus the closure of the set of all fixed interval tangent simplex
+cones at time t is contained in K(μ,x0,t0,t) since the latter is closed.
+(i)⊂(ii) Let r = dim(K(μ,x0,t0,t)) and let v ∈ rel int(K(μ,x0,t0,t)). By Proposi-
+tion B.17 there exists v1,...,vr ∈ K(μ,x0,t0,t) such that conv cone({v1,...,vr}) is an
+r-simplex cone with v in its relative interior. Thus there exists λ1,...,λr ∈R>0 such that
+v = λ1v1 + ···+ λrvr.
+Let a ∈{1,...,r}. Since va ∈K(μ,x0,t0,t) there exists fixed interval needle variation data
+θaj = (τaj,laj,ωaj) and λaj ∈R>0, j ∈{1,...,ka}, a ∈{1,...,r}, such that
+va = λa1Φ(μ,x0,t0,τθa1 ,t) ·vθa1 + ···+ λakaΦ(μ,x0,t0,τθaka ,t) ·vθaka .
+Now take Θa = {λa1θa1,...,λakaθaka} and note that va = vΘa(t).
+If the times τaj, j ∈ {1,...,ka}, a ∈ {1,...,r}, are distinct then {Θ1,...,Θr} is fixed
+interval tangent r-simplex cone data and
+v ∈int(conv cone({vΘ1 (t),...,vΘr(t)})).
+However, there is no reason for the times τaj, j ∈{1,...,ka}, a ∈{1,...,r}, to be distinct.
+So let  > 0. The times τaj, j ∈ {1,...,ka}, a ∈ {1,...,r}, can be modified to be distinct
+Lebesgue points τ′aj, j ∈{1,...,ka}, a ∈{1,...,r}, in such a way that
+1. the total difference between the original times and the modified times is at most  and
+2. the total of the differences ‖f(ξ(τ′aj),μ(τ′aj)) −f(ξ(τaj),μ(taj))‖ is at most .
+52 A. D. Lewis
+From this it follows that vθaj and vθ′aj can also b
+
+
+134 A. D. Lewis
+Using the fact that Dg is continuous this gives
+‖g(y) −g(x)‖≤MB‖y −x‖, x,y ∈B,
+where
+MB = sup{‖Dg(x)‖| x ∈B}.
+Now, since A is compact, we can cover it with a finite number of balls B1,...,BN, each
+contained in U. Let us denote
+C = (A ×A) −∪Nj=1Bj ×Bj
+and note that C is compact. Moreover, the function d: Rn×Rn →R≥0 defined by d(x,y) =
+‖x−y‖ is strictly positive when restricted to C. Therefore, there exists m ∈R>0 such that
+d(x,y) ≥m for all (x,y) ∈C. Let
+M0 = sup{‖g(y) −g(x)‖| x,y ∈A},
+noting that this number is finite since g is continuous and A is compact. Now define
+M = max{M0
+m ,MB1 ,...,MBN }.
+Now let x,y ∈A. If x,y ∈Bj for some j ∈{1,...,N} then
+‖g(y) −g(x)‖≤MBj‖y −x‖≤M‖y −x‖.
+If x and y are not together contained in any of the balls B1,...,BN then (x,y) ∈C. Thus
+‖g(y) −g(x)‖≤M0 = M0
+m m ≤M‖y −x‖.
+Thus we have
+‖g(y) −g(x)‖≤M‖y −x‖, x,y ∈A,
+i.e., g is uniformly Lipschitz in A. H
+2 Lemma: Let A ⊂ Rn+1 be compact, let U be a neighbourhood of A, let g: U → Rn+1 be
+of class C1, and for s ∈ R define hs : A → Rn+1 by hs(x) = x + sg(x). Then there exists
+ ∈R>0 such that
+(i) for each s ∈[−,], hs is injective and
+(ii) the function s 7→vol(hs(A)) is a polynomial.
+Proof: By Lemma 1 let M ∈R>0 be such that
+‖g(y) −g(x)‖≤M‖y −x‖, x,y ∈A,
+and let  ∈(0,M−1). Then for |s|<  we claim that hs is injective. Indeed, if hs(x) = hs(y)
+then
+x −y = s(g(y) −g(x)) =⇒ ‖y −x‖= |s|‖g(y) −g(x)‖≤|s|M‖x −y‖.
+Since |s|M < 1 this implies that x = y. This gives the first assertion in the lemma.
+The Maximum Principle in control and in optimal control 135
+For the second assertion we observe that det Dhs(x) is a polynomial function of s, it
+being the determinant of a matrix whose entries are linear in s. Thus we can write
+det Dhs(x) = 1 + a1(x)s + ···+ an+1(x)sn+1
+for continuous functions a1,...,an+1. Therefore
+vol(hs(A)) =
+∫
+hs(A)
+dx1 ···dxn+1 =
+∫
+A
+det Dhs(x) dx1 ···dxn+1,
+which is clearly a polynomial function in s. H
+3 Lemma: Let f : Sn →Rn+1 have the following properties:
+(i) 〈f(x),x〉= 0 for each x ∈Sn;
+(ii) ‖f(x)‖= 1 for each x ∈Sn.
+Let U be a neighbourhood of Sn with  ̄f : U →Rn+1 a continuously differentiable extension
+of f, and for s ∈R define hs : U →Rn+1 by hs(x) = x + s  ̄f(x). Then, for |s| sufficiently
+small,  ̄f maps Sn onto the sphere
+Sn(√
+1 + s1) = {x ∈Rn+1 ∣∣ ‖x‖= √
+1 + s2}
+of radius √1 + s2.
+Proof: First note that hs(Sn) ⊂ Sn(√1 + s2) for any s ∈ R by direct computation. As we
+saw in the proof of Lemma 2, for s sufficiently small Dhs(x) is nonsingular for each x ∈Sn.
+By the Inverse Function Theorem this means that, for s sufficiently small, hs is a local
+diffeomorphism about every point in Sn. Thus hs|Sn maps every sufficiently small open set
+to an open set, provided that s is sufficiently small. This in turn means that hs|Sn is an
+open mapping for s sufficiently small. In particular, hs(Sn) is an open subset of Sn(√1 + s2)
+for s sufficiently small. However, hs(Sn) is also compact, the image of compact sets under
+continuous maps being compact. The only subset of Sn(√1 + s2) that is open and closed
+is Sn(√1 + s2) since Sn(√1 + s2) is connected. H
+Now suppose that f : Sn →Rn+1 is such that
+1. f is of class C1,
+2. 〈f(x),x〉= 0 for x ∈Sn, and
+3. f(x) 6= 0 for every x ∈Sn.
+We may assume without loss of generality (by dividing f by the function x 7→‖f(x)‖) that
+‖f(x)‖= 1 for each x ∈Sn. For a,b ∈R>0 satisfying a < 1 < b define
+A = {x ∈Rn+1 | a ≤‖x‖≤b},
+and note that A is compact. For the function f as in the theorem statement (but now of
+class C1) extend f to A by f(rx) = rf(x), x ∈ Sn. Then, with hs(x) = x + sf(x) for
+s ∈ R, hs(rx) = rhs(x) for x ∈ Sn. Therefore, hs maps the sphere of radius r ∈ [a,b] into
+136 A. D. Lewis
+the sphere of radius r√1 + s2. By Lemma 3, for s sufficiently small hs maps the sphere of
+radius r onto the sphere of radius r√1 + s2 for each r ∈[a,b]. Therefore,
+vol(hs(A)) = (√
+1 + s2)n+1vol(A)
+for s sufficiently small. For n even this is not a polynomial in s, and this contradicts
+Lemma 2. This proves the theorem for f of class C1.
+Finally, we prove the theorem for f continuous. Thus we let f : Sn → Rn+1 have the
+following properties:
+1. f is continuous;
+2. 〈f(x),x〉= 0 for each x ∈Sn;
+3. ‖f(x)‖6= 0 for x ∈Sn.
+Let
+m = inf{‖f(x)‖| x ∈Sn}
+and let p: Sn →Rn+1 be a polynomial function such that
+sup{‖p(x) −f(x)‖| x ∈Sn}< m
+2 ,
+this being possible by the Weierstrass Approximation Theorem. Now define a continuously
+differentiable function g: Sn →Rn+1 by
+g(x) = p(x) −〈p(x),x〉x,
+and note that 〈g(x),x〉= 0 by direct computation. We have
+〈p(x) −f(x),x〉= 〈p(x),x〉
+=⇒ |〈p(x),x〉|= |〈p(x) −f(x),x〉|≤‖p(x) −f(x)‖< m
+2
+for each x ∈Sn. This gives
+‖g(x) −p(x)‖= |〈p(x),x〉|< m
+2 ,
+and so
+|‖g(x)‖−‖f(x)‖|≤‖g(x) −f(x)‖≤‖g(x) −p(x)‖+ ‖p(x) −f(x)‖< m
+for all x ∈ Sn. This implies that ‖g(x)‖ > 0 for all x ∈ Sn, which is in contradiction to
+what we proved in the first part of the proof since g is continuously differentiable. 
+The intuition of the Hairy Ball Theorem is this. Note that the function f in the theorem
+statement, by virtue of the fact that 〈f(x),x〉 = 0 for all x ∈ Sn, can be thought of as
+assigning a tangent vector to Sn at each point, i.e., as defining a vector field. The result
+then says that, when n is even, any such vector field must vanish somewhere. Try to picture
+this to yourself when n = 2. Note that the result requires that n be even, since otherwise
+the function
+f(x1,...,xn+1) = (x2,−x1,x4,−x3,...,xn,−xn+1)
+defines a unit vector field that is everywhere tangent to Sn.
+The Maximum Principle in control and in optimal control 137
+C.2. The Brouwer Fixed Point Theorem
+Now we state and prove the Brouwer Fixed Point Theorem.
+C.2 Theorem: (Brouwer Fixed Point Theorem) If f : Dn → Dn is continuous then there
+exists x0 ∈Dn such that f(x0) = x0.
+Proof: First let us suppose that n is even. Suppose that f(x) 6= x for every x ∈Dn. Then
+define g: Dn →Rn by
+g(x) = x −f(x) 1 −〈x,x〉
+1 −〈f(x),x〉.
+Note that g(x) = x for 〈x,x〉= 1, and so g points “outward” on Sn−1 = bd(Dn). Since
+|〈f(x),x〉|< |f(x)|≤1
+it follows that g is continuous. We also claim that g is nowhere zero. If {f(x),x} is
+linearly independent then g(x) is clearly nonzero. If {f(x),x} is linearly dependent then
+〈x,x〉f(x) = 〈f(x),x〉x and so
+g(x) = x −f(x)
+1 −〈f(x),x〉 6= 0.
+Now consider Sn ⊂Rn+1 and denote by
+Sn− = {x ∈Sn | xn+1 ≤0}, Sn+ = {x ∈Sn | xn+1 ≥0}
+the southern and northern hemispheres, respectively. We also denote by E = Sn− ∩Sn+ the
+equator. Now define a map φ− from Dn to Sn− by
+φ−(x) = (2x1,...,2xn,1 −〈x,x〉)
+1 + 〈x,x〉 .
+(One may verify that this map is stereographic projection from the north pole, thinking of
+Dn as being the disk whose boundary is E.) Now define a vector field h on Sn− by
+h(z) = Dφ−(φ−1− (z)) ·g(φ−1− (z)).
+This is a nowhere zero vector field on Sn−. Moreover, a direct computation shows that for
+z ∈E we have h(z) = (0,...,0,1). Define a map φ+ from Dn to Sn+ by
+φ+(x) = (2x1,...,2xn,−1 + 〈x,x〉)
+1 + 〈x,x〉 .
+Then define a vector field h on Sn+ by
+h(z) = −Dφ+(φ−1+ (z)) ·g(φ−1+ (z)).
+This vector field does not vanish on Sn+ and a computation gives h(z) = (0,...,0,1) for
+z ∈ E, so h is consistently defined. Moreover, h is continuous and nowhere zero. This
+contradicts the Hairy Ball Theorem since we are assuming that n is even.
+If n is odd, suppose again that f(x) 6= x for every x ∈Dn. Then define F : Dn+1 →Dn+1
+by
+F(z1,...,zn+1) = (f(z1,...,zn),0),
+and note that F is continuous and has the property that F(z) 6= z for every z ∈Dn+1. But
+we have just showed that this is a contradiction since n + 1 is even. 
+138 A. D. Lewis
+C.3. The desired results
+Finally, we prove two consequences of the Brouwer Fixed Point Theorem that we shall
+use in the Sections 5.4 and 6.4 in our approximation of reachable sets with cones of needle
+variations and in establishing the transversality conditions.
+C.3 Lemma: (A property of certain maps from compact convex sets) Let K ⊂Rn be com-
+pact and convex with int(K) 6= ∅, and let f : K → Rn be continuous. If x0 ∈ int(K) has
+the property that
+‖f(x) −x‖< ‖x −x0‖
+for each x ∈bd(K), then x0 ∈image(f).
+Proof: Without loss of generality suppose that x0 = 0. Define a map φ: K →Dn as follows.
+For x ∈ K let λx ∈ R>0 have the property that λxx ∈ bd(K). Since K is compact such
+a λx always exists and since K is convex with 0 ∈ int(K) it follows that λx is uniquely
+defined (cf. Lemma 1 in the proof of Proposition B.11). We then define φ(x) = x
+λx‖x‖. We
+leave it to the reader to verify that φ is a homeomorphism.
+Now suppose that f(x) 6= 0 for every x ∈ K. Define g: Dn → Rn by g(z) = f ◦φ−1(z).
+For x ∈bd(K) we have
+‖f(x) −x‖< ‖x‖,
+=⇒ 0 ≤‖f(x)‖< 2〈f(x),x〉,
+=⇒ 〈f(x),x〉> 0.
+This means that f(x) has a strictly positive component in the direction of x for each
+x ∈ bd(K). This then implies that g(z) has a strictly positive component in the direction
+of z for each z ∈bd(Dn). We then define h: Dn →Rn by
+h(z) = z −g(z) 1 −〈z,z〉
+1 −〈g(z),z〉,
+and we verify, just as in our proof of the Brouwer Fixed Point Theorem, that h(z) points
+strictly outwards on bd(Dn). However, as we saw in the proof of the Brouwer Fixed Point
+Theorem, this leads to a contradiction of the Hairy Ball Theorem. Therefore, we must have
+f(x) = 0 for some x ∈K. 
+In Figure C.1 we depict the idea behind the lemma. The gist of the matter is that
+if the boundary does not deform too much under the continuous map f–specifically, it is
+deformed sufficiently little that the region containing the image of the boundary does not
+contain x0–then the image covers x0.
+The next result deals with the intersection of transverse planes under the image of a
+continuous map.
+C.4 Lemma: (Intersections of continuous images of transverse planes) Let n,k ∈ Z>0 with
+k < n. Define
+Cn = {(x1,...,xn) | max{|x1|,...,|xn|}≤1},
+P1 = {(x1,...,xn) ∈Cn | xk+1 = ···= xn = 0},
+P2 = {(x1,...,xn) ∈Cn | x1 = ···= xk = 0}.
+The Maximum Principle in control and in optimal control 139x0
+Figure C.1. The idea behind Lemma C.3. The solid circle repre-
+sents the boundary of C and the shaded region is where the
+boundary gets mapped to.
+Suppose that fa : Pa →Rn, a ∈{1,2} are continuous maps such that
+‖fa(xa) −xa‖< 1
+4 , xa ∈Pa, a ∈{1,2}.
+Then f1(P1) ∩f2(P2) 6= ∅.
+Proof: Denote a point in Cn by (x1,x2) ∈ Rk ×Rn−k and define a map g: Cn → Rn by
+g(x1,x2) = f1(x1) −f2(−x2). Then, for every (x1,x2) ∈Cn, we have
+‖g(x1,x2) −(x1,x2)‖= ‖(f1(x1) −x1) −(f(−x2) −(−x2))‖
+≤‖f1(x1) −x1‖+ ‖f(−x2) −(−x2)‖< 1
+2 .
+This implies that for every (x1,x2) ∈bd(Cn) we have
+‖g(x1,x2) −(x1,x2)‖< ‖(x1,x2) −(0,0)‖,
+and so by Lemma C.3 we have (0,0) ∈image(g). Thus there exists (x1,x2) ∈Cn such that
+f(x1) = f(−x2), and the lemma thus follows. 
+In Figure C.2 we depict the idea behind Lemma C.4. The idea is that, provided the
+planes P1 and P2 do not get deformed too much by f1 and f2, respectively, then they will
+intersect after the maps are applied provided they intersect before in a sufficiently “robust”
+manner.
+140 A. D. Lewis
+Figure C.2. The idea behind Lemma C.4. The vertical line rep-
+resents P1, the horizontal line represents P2, and the shaded
+regions represent where these sets get mapped to.
+Bibliography
+Agrachev, A. A. and Sachkov, Y. [2004] Control Theory from the Geometric View-
+point, volume 87 of Encyclopedia of Mathematical Sciences, Springer-Verlag, New
+York–Heidelberg–Berlin, ISBN 3-540-21019-9.
+Berkovitz, L. D. [1974] Optimal Control Theory, number 12 in Applied Mathematical Sci-
+ences, Springer-Verlag, New York–Heidelberg–Berlin, ISBN 0-387-90106-X.
+Bianchini, R. M. and Stefani, G. [1993] Controllability along a trajectory: A variational
+approach, SIAM Journal on Control and Optimization, 31(4), 900–927.
+Bliss, G. A. [1946] Lectures on the Calculus of Variations, Phoenix Science Series, University
+of Chicago Press, Chicago, IL.
+Bolza, O. [1961] Lectures on the Calculus of Variations, second edition, Chelsea, New York,
+ISBN 0-8218-2144-X.
+Bonnard, B. and Chyba, M. [2003] Singular Trajectories and their Role in Con-
+trol Theory, number 40 in Mathematics & Applications, Springer-Verlag, New
+York–Heidelberg–Berlin, ISBN 3-540-00838-1.
+Brockett, R. W. [1970] Finite Dimensional Linear Systems, John Wiley and Sons, New
+York, New York.
+Bullo, F. and Lewis, A. D. [2004] Geometric Control of Mechanical Systems: Modeling,
+Analysis, and Design for Simple Mechanical Systems, number 49 in Texts in Applied
+Mathematics, Springer-Verlag, New York–Heidelberg–Berlin, ISBN 0-387-22195-6.
+Carath ́eodory, C. [1935] Variationsrechnung und partielle Differentialgleichungen erster
+Ordnung, Teubner, Leipzig, translation: [Carath ́eodory 1982].
+— [1982] Calculus of Variations, Chelsea, New York, ISBN 0-8284-0318-X, translation of
+Variationsrechnung und partielle Differentialgleichungen erster Ordnung.
+Cohn, D. L. [1980] Measure Theory, Birkh ̈auser, Boston/Basel/Stuttgart, ISBN 0-8176-
+3003-1.
+Dullerud, G. E. and Paganini, F. [1999] A Course in Robust Control Theory, number 36
+in Texts in Applied Mathematics, Springer-Verlag, New York–Heidelberg–Berlin, ISBN
+0-387-98945-5.
+141
+142 A. D. Lewis
+Fuller, A. T. [1960] Relay control systems optimized for various performance criteria, in
+Proceedings of the First IFAC World Congress, pages 510–519, IFAC, Butterworth &
+Co., Ltd. London, Moscow.
+Gelfand, I. M. and Fomin, S. V. [2000] Calculus of Variations, Dover Publications, Inc.,
+New York, ISBN 0-486-41448-5, reprint of 1963 translation from Russian by Richard A.
+Silverman.
+Giaquinta, M. and Hildebrandt, S. [1996] Calculus of Variations, number 310 and
+311 in Grundlehren der mathematischen Wissenschaften, Springer-Verlag, New
+York–Heidelberg–Berlin, ISBN 3-540-50625-X and 3-540-57961-3.
+Goldstine, H. H. [1980] A History of the Calculus of Variations From the 17th Through the
+19th Century, number 5 in Studies in the History of Mathematics and Physical Sciences,
+Springer-Verlag, New York–Heidelberg–Berlin, ISBN 0-387-90521-9.
+Halmos, P. R. [1974] Measure Theory, number 18 in Graduate Texts in Mathematics,
+Springer-Verlag, New York–Heidelberg–Berlin, ISBN 0-387-90088-8, reprint of 1950 edi-
+tion by Litton Educational Publishing, Inc.
+Hansen, E. K. [2005] Coordinate-free derivation of the Euler–Lagrange equations and
+identification of global solutions via local behavior, Master’s thesis, Queen’s University,
+Kingston, Department of Mathematics & Statistics, Kingston, ON K7L 3N6, Canada.
+Hestenes, M. R. [1966] Calculus of Variations and Optimal Control Theory, Applied Math-
+ematics Series, John Wiley and Sons, New York, New York.
+Jurdjevic, V. [1997] Geometric Control Theory, number 51 in Cambridge Stud-
+ies in Advanced Mathematics, Cambridge University Press, New York/Port
+Chester/Melbourne/Sydney, ISBN 0-521-49502-4.
+Kalman, R. E. [1960] Contributions to the theory of optimal control, Bolet ́ın de la Sociedad
+Matem ́atica Mexicana. Segunda Serie, 5, 102–119.
+Krener, A. J. [1977] The higher order maximum principle and its applications to singular
+extremals, SIAM Journal on Control and Optimization, 15(2), 256–293.
+Lanczos, C. [1949] The Variational Principles of Mechanics, University of Toronto Press,
+Toronto, reprint of revised edition: [Lanczos 1986].
+— [1986] The Variational Principles of Mechanics, Dover Publications, Inc., New York,
+ISBN 0-486-65067-7, reprint of fourth edition.
+Lee, E. B. and Markus, L. [1967] Foundations of Optimal Control Theory, John Wiley and
+Sons, New York, New York.
+Lewis, A. D. and Tyner, D. R. [2003] Jacobian linearisation in a geometric setting, in
+Proceedings of the 42nd IEEE Conference on Decision and Control, pages 6084–6089,
+Maui, HI.
+The Maximum Principle in control and in optimal control 143
+Milnor, J. W. [1978] Analytic proofs of the “Hairy Ball Theorem” and the Brouwer Fixed
+Point Theorem, The American Mathematical Monthly, 85(7), 521–524.
+Pontryagin, L. S., Boltyanskii, V. G., Gamkrelidze, R. V., and Mishchenko, E. F. [1961]
+Matematicheskaya teoriya optimal ′ nykh protsessov, Gosudarstvennoe izdatelstvo fiziko-
+matematicheskoi literatury, Moscow, reprint of translation: [Pontryagin, Boltyanskii,
+Gamkrelidze, and Mishchenko 1986].
+— [1986] The Mathematical Theory of Optimal Processes, Classics of Soviet Mathematics,
+Gordon & Breach Science Publishers, New York, ISBN 2-88124-134-4, reprint of 1962
+translation from the Russian by K. N. Trirogoff.
+Rockafellar, R. T. [1970] Convex Analysis, Princeton Mathematical Series, Princeton Uni-
+versity Press, Princeton, New Jersey.
+Rudin, W. [1976] Principles of Mathematical Analysis, third edition, International Series in
+Pure & Applied Mathematics, McGraw-Hill, New York, ISBN 0-07-054235-X.
+Skinner, R. [1983] First-order equations of motion for classical mechanics, Journal of Math-
+ematical Physics, 24(11), 2581–2588.
+Skinner, R. and Rusk, R. [1983a] Generalized Hamiltonian dynamics. I. Formulation on
+T∗Q ⊕TQ, Journal of Mathematical Physics, 24(11), 2589–2594.
+— [1983b] Generalized Hamiltonian dynamics. II. Guage transformations, Journal of Math-
+ematical Physics, 24(11), 2595–2601.
+Sussmann, H. J. [1997] An introduction to the coordinate-free maximum principle, in Geom-
+etry of Feedback and Optimal Control, B. Jakubczyk and W. Respondek, editors, pages
+463–557, Dekker Marcel Dekker, New York.
+Sussmann, H. J. and Willems, J. C. [1997] 300 years of optimal control: From the brachys-
+tochrone to the maximum principle, IEEE Control Systems Magazine.
+Troutman, J. L. [1996] Variational Calculus and Optimal Control, Optimization with El-
+ementary Convexity, second edition, Undergraduate Texts in Mathematics, Springer-
+Verlag, New York–Heidelberg–Berlin, ISBN 0-387-94511-3.
+Wonham, W. M. [1985] Linear Multivariable Control, A Geometric Approach,
+third edition, number 10 in Applications of Mathematics, Springer-Verlag, New
+York–Heidelberg–Berlin, ISBN 0-387-96071-6.
+Yan, F. Y. M. [1995] Introduction to the Calculus of Variations and its Applications, Chap-
+man & Hall, New York/London, ISBN 0-534-09984-X.
+Zhou, K. [1996] Robust and Optimal Control, Prentice-Hall, Englewood Cliffs, NJ, ISBN
+0-13-456567-3, with John C. Doyle and Keith Glover.
